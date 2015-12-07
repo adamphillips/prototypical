@@ -15,4 +15,5 @@ gemspec
 
 group :test do
   gem 'minitest-spec-rails'
+  gem 'pry-byebug'
 end
