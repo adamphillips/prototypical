@@ -54,5 +54,6 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
+  get '/has_prototype' => 'static#has_prototype'
   root 'static#home'
 end

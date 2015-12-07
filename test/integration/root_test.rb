@@ -5,4 +5,9 @@ class RootTest < ActionDispatch::IntegrationTest
     get '/'
     assert_response :success
   end
+
+  it 'should display a prototype if there is one' do
+    get '/has_prototype'
+    assert_response :success
+  end
 end
