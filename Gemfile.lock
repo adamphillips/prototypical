@@ -57,6 +57,9 @@ GEM
     mime-types (2.99)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
+    minitest-spec-rails (5.3.0)
+      minitest (~> 5.0)
+      rails (>= 4.1)
     nokogiri (1.6.7)
       mini_portile2 (~> 2.0.0.rc2)
     rack (1.6.4)
@@ -103,4 +106,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  minitest-spec-rails
   prototypical!
