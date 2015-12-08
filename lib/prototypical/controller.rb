@@ -1,5 +1,9 @@
 module Prototypical
   module Controller
+    def self.included(base)
+      base.before_action :enable_prototyping if Prototypical.enable_on_include?
+    end
+
     def enable_prototyping
       append_prototypical_view_path
     end
