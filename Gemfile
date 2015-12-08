@@ -15,5 +15,6 @@ gemspec
 
 group :test do
   gem 'minitest-spec-rails'
+  gem 'mocha'
   gem 'pry-byebug'
 end
