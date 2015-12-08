@@ -4,7 +4,11 @@ require 'prototypical/railtie'
 
 module Prototypical
   class << self
-    attr_accessor :view_path, :enable_on_include
+    attr_accessor :view_path, :enabled, :enable_on_include
+
+    def enabled?
+      !!enabled
+    end
 
     def enable_on_include?
       !!enable_on_include

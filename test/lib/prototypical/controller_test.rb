@@ -11,18 +11,35 @@ module Prototypical
     describe '#enable_prototyping' do
       setup do
         StubController.send :include, Controller
+
+        @controller = StubController.new
+
+        @expected_view_path = Rails.root.join('app/prototypes')
       end
 
-      it 'should append the protypical view path' do
-        controller = StubController.new
+      describe 'when Prototypical.enabled? is true' do
+        setup { Prototypical.stubs(:enabled?).returns(true) }
 
-        expected_view_path = Rails.root.join('app/prototypes')
+        it 'should append the protypical view path' do
+          @controller
+            .expects(:prepend_view_path)
+            .with(@expected_view_path)
 
-        controller
-          .expects(:prepend_view_path)
-          .with(expected_view_path)
+          @controller.enable_prototyping
+        end
+      end
 
-        controller.enable_prototyping
+      describe 'when Prototypical.enabled? is false' do
+        setup { Prototypical.stubs(:enabled?).returns(false) }
+
+        it 'should do nothing' do
+          @controller
+            .expects(:prepend_view_path)
+            .with(@expected_view_path)
+            .never
+
+          @controller.enable_prototyping
+        end
       end
     end
 

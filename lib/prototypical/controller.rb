@@ -5,6 +5,8 @@ module Prototypical
     end
 
     def enable_prototyping
+      return unless Prototypical.enabled?
+
       append_prototypical_view_path
     end
 
