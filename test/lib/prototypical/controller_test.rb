@@ -8,7 +8,7 @@ module Prototypical
 
     include Controller
 
-    describe '#append_prototypical_view_path' do
+    describe '#enable_prototyping' do
       setup do
         stubs(:before_action)
       end
@@ -16,7 +16,7 @@ module Prototypical
       it 'should append the protypical view path' do
         expected_view_path = Rails.root.join('app/prototypes')
 
-        expects(:append_view_path)
+        expects(:prepend_view_path)
           .with(expected_view_path)
 
         append_prototypical_view_path

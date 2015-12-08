@@ -54,6 +54,8 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  get '/has_prototype' => 'static#has_prototype'
+  get '/enabled_prototype' => 'static#enabled_prototype'
+  get '/disabled_prototype' => 'static#disabled_prototype'
+
   root 'static#home'
 end
