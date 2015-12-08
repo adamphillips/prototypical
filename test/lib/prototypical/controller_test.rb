@@ -4,16 +4,23 @@ require 'prototypical/controller'
 
 module Prototypical
   class ControllerTest < ActiveSupport::TestCase
-    class StubController; end
+    def self.before_action(action); end
 
-    it 'should append the protypical view path' do
-      expected_view_path = Rails.root.join('app/prototypes')
+    include Controller
 
-      StubController
-        .expects(:append_view_path)
-        .with(expected_view_path)
+    describe '#append_prototypical_view_path' do
+      setup do
+        stubs(:before_action)
+      end
 
-      StubController.send :include, Controller
+      it 'should append the protypical view path' do
+        expected_view_path = Rails.root.join('app/prototypes')
+
+        expects(:append_view_path)
+          .with(expected_view_path)
+
+        append_prototypical_view_path
+      end
     end
   end
 end
