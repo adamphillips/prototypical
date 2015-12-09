@@ -1,7 +1,7 @@
 # Prototypical
 
 Prototypical facilitates easy prototyping within a Rails app. It does this by
-enabling a second folder for templates. By default this folder is
+enabling a secondary folder for templates. By default this folder is
 `app/prototypes`.
 
 ## Setup
@@ -58,9 +58,9 @@ This will take precedence over an equivalent view in `app/views`.
 
 Because Rails treats this as it would any other view, you can do all the normal
 things you would expect in views including rendering other templates (either
-from the prototypes folder or the main application) and helper methods.
-Transitioning from a prototype to a view is as simple as moving the template and
-disabling prototyping.
+from the prototypes folder or the main application), helper methods and
+Erb/Haml/Slim/etc templates. Transitioning from a prototype to a view is as
+simple as moving the template and disabling prototyping.
 
 ### Implicit
 
