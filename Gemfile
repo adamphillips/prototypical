@@ -12,9 +12,3 @@ gemspec
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
-
-group :test do
-  gem 'minitest-spec-rails'
-  gem 'mocha'
-  gem 'pry-byebug'
-end

@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     prototypical (0.0.1)
-      rails (~> 4.2.5)
+      rails (>= 4)
 
 GEM
   remote: https://rubygems.org/
@@ -120,7 +120,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  minitest-spec-rails
-  mocha
+  minitest-spec-rails (~> 5.3)
+  mocha (~> 1.1)
   prototypical!
-  pry-byebug
+  pry-byebug (~> 3.3)
