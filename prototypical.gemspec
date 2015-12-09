@@ -8,10 +8,10 @@ Gem::Specification.new do |s|
   s.name        = "prototypical"
   s.version     = Prototypical::VERSION
   s.authors     = ["Adam Phillips"]
-  s.email       = ["aphillips@scholastic.co.uk"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Prototypical."
-  s.description = "TODO: Description of Prototypical."
+  s.email       = ["adam@29ways.co.uk"]
+  s.homepage    = "https://github.com/adamphillips/prototypical"
+  s.summary     = "Easy prototyping in Rails applications."
+  s.description = "Adds simple prototyping to Rails application via a secondary template folder."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
