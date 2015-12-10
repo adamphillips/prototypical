@@ -1,0 +1,7 @@
+engines:
+  bundler-audit:
+    enabled: true
+  csslint:
+    enabled: false
+  eslint:
+    enabled: false
