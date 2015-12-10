@@ -24,6 +24,19 @@ bundle
 
 ## Usage
 
+### How does it work?
+
+The premise of Prototypical is extremely simple. All it does is conditionally
+add an extra folder to your view path that takes precedence over the main
+`app/views` folder. Everything else that it does is about deciding wether to
+make this change and tracking wether it has been done.
+
+Whilst there are some reference docs below, the best way to understand it is to
+look at the code for the [Prototypical::Controller
+module](lib/prototypical/controller.rb). This module is extremely
+simple and encompasses pretty much everything that Prototypical does. The
+remaining modules are just about configuration and working with Rails.
+
 ### Explicit
 
 By default, Prototypical requires enabling on a per-action basis. This means
