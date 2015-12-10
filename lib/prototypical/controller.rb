@@ -8,7 +8,7 @@ module Prototypical
     def enable_prototyping
       return unless Prototypical.enabled?
 
-      append_prototypical_view_path
+      inject_prototypical_template_path
       @prototyping = true
     end
 
@@ -17,8 +17,8 @@ module Prototypical
     end
 
   private
-    def append_prototypical_view_path
-      prepend_view_path Rails.root.join(Prototypical.view_path)
+    def inject_prototypical_template_path
+      prepend_view_path Rails.root.join(Prototypical.template_path)
     end
   end
 end

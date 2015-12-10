@@ -4,7 +4,7 @@ module Prototypical
   class Railtie < Rails::Railtie
     config.prototypical = ActiveSupport::OrderedOptions.new
 
-    config.prototypical.view_path = 'app/prototypes'
+    config.prototypical.template_path = 'app/prototypes'
     config.prototypical.enabled = !Rails.env.production?
     config.prototypical.enable_on_include = false
 

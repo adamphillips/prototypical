@@ -128,5 +128,5 @@ The folder for prototypes can be changed in the application config
 ```ruby
 # config/application.rb
 
-    config.prototypical.view_path = 'app/prototypes'
+    config.prototypical.template_path = 'app/prototypes'
 ```

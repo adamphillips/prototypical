@@ -1,6 +1,6 @@
 module Prototypical
   module Configuration
-    attr_accessor :view_path, :enabled, :enable_on_include
+    attr_accessor :template_path, :enabled, :enable_on_include
 
     def enabled?
       !!enabled
