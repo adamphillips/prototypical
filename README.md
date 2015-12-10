@@ -11,14 +11,14 @@ enabling a secondary folder for templates. By default this folder is
 
 Add it to your gemfile
 
-```
+```ruby
 # Gemfile
 gem 'prototypical'
 ```
 
 then run
 
-```
+```ruby
 bundle
 ```
 
@@ -36,7 +36,7 @@ module in the controller then call the `enable_protyping` method. This is
 usually done in a `before_action`.
 
 
-```
+```ruby
 # app/controllers/my_controller.rb
 class MyController < ApplicationController
   include Prototypical::Controller
@@ -50,8 +50,8 @@ end
 
 Then create the prototype view in `app/prototypes`.
 
-```
-# app/prototypes/my/my_action.html.erb
+```html
+<!-- app/prototypes/my/my_action.html.erb -->
 <div>
   <p>Prototype</p>
 </div>
@@ -72,7 +72,7 @@ automatically have prototyping enabled. In order to do this you can first set
 the `prototypical.enable_on_include` configuration option in
 `config/application.rb`
 
-```
+```ruby
 # config/application.rb
 
     config.prototypical.enable_on_include = true
@@ -91,7 +91,7 @@ application.
 
 There is a `prototypical.enabled` configuration option that can be used to enable or disable Prototypical at a high-level. If this is set to false then calling `enable_prototyping` will do nothing. By default this is set to `!Rails.env.production?`. This means that prototyping is automatically disabled in production but enabled everywhere else. If you want to enable prototypes in production then set this value in the `config/application.rb`
 
-```
+```ruby
 # config/application.rb
 
     config.prototypical.enabled = true
@@ -101,7 +101,7 @@ There is a `prototypical.enabled` configuration option that can be used to enabl
 
 The folder for prototypes can be changed in the application config
 
-```
+```ruby
 # config/application.rb
 
     config.prototypical.view_path = 'app/prototypes'
