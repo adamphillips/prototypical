@@ -1,5 +1,8 @@
 # Prototypical
 
+[![Build Status](https://travis-ci.org/adamphillips/prototypical.svg?branch=master)](https://travis-ci.org/adamphillips/prototypical)
+[![Code Climate](https://codeclimate.com/github/adamphillips/prototypical/badges/gpa.svg)](https://codeclimate.com/github/adamphillips/prototypical)
+
 Prototypical facilitates easy prototyping within a Rails app. It does this by
 enabling a secondary folder for templates. By default this folder is
 `app/prototypes`.
