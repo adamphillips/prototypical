@@ -85,6 +85,17 @@ Then if you include `Prototypical::Controller` in your `ApplicationController`,
 prototyping will be automatically enabled for all controllers and actions in the
 application.
 
+## Conditional behaviour
+
+There is a helper method `prototyping?` you can use to check wether prototyping
+has been enabled. Regardless of how you choose to enable prototyping above, this
+method will only be true if the view path has been modified and false if not.
+
+You should note that this is part of the `Prototypical::Controller` module and
+therefore will only be available if the module has been included into the
+controller. Once included, it is automatically added to the view context via
+`helper_method`.
+
 ## Configuration
 
 ### Enabling / disabling

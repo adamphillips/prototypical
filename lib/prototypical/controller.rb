@@ -2,12 +2,18 @@ module Prototypical
   module Controller
     def self.included(base)
       base.before_action :enable_prototyping if Prototypical.enable_on_include?
+      base.helper_method :prototyping?
     end
 
     def enable_prototyping
       return unless Prototypical.enabled?
 
       append_prototypical_view_path
+      @prototyping = true
+    end
+
+    def prototyping?
+      !!@prototyping
     end
 
   private

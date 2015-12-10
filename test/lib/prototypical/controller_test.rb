@@ -6,6 +6,42 @@ module Prototypical
   class ControllerTest < ActiveSupport::TestCase
     class StubController
       def self.before_action(action); end
+      def self.helper_method(method); end
+    end
+
+    describe 'including' do
+      describe 'when Prototypical.enable_on_include is false' do
+        setup { Prototypical.stubs(:enable_on_include?).returns(false) }
+
+        it 'should not automatically enable prototyping' do
+          StubController
+            .expects(:before_action)
+            .with(:enable_prototyping)
+            .never
+
+          StubController.send :include, Controller
+        end
+      end
+
+      describe 'when Prototypical.enabled_on_include? is true' do
+        setup { Prototypical.stubs(:enable_on_include?).returns(true) }
+
+        it 'should automatically enable prototyping' do
+          StubController
+            .expects(:before_action)
+            .with(:enable_prototyping)
+
+          StubController.send :include, Controller
+        end
+      end
+
+      it 'should register #prototyping? as a helper method' do
+        StubController
+          .expects(:helper_method)
+          .with(:prototyping?)
+
+        StubController.send :include, Controller
+      end
     end
 
     describe '#enable_prototyping' do
@@ -43,30 +79,29 @@ module Prototypical
       end
     end
 
-    describe 'including' do
-      describe 'when Prototypical.enable_on_include is false' do
-        setup { Prototypical.stubs(:enable_on_include?).returns(false) }
+    describe '#prototyping?' do
+      setup do
+        StubController.send :include, Controller
 
-        it 'should not automatically enable prototyping' do
-          StubController
-            .expects(:before_action)
-            .with(:enable_prototyping)
-            .never
-
-          StubController.send :include, Controller
-        end
+        @controller = StubController.new
+        @controller.stubs(:prepend_view_path)
       end
 
-      describe 'when Prototypical.enabled_on_include? is true' do
-        setup { Prototypical.stubs(:enable_on_include?).returns(true) }
+      it 'should return true when prototyping has been enabled' do
+        Prototypical.stubs(:enabled?).returns(true)
+        @controller.enable_prototyping
+        assert @controller.prototyping?
+      end
 
-        it 'should automatically enable prototyping' do
-          StubController
-            .expects(:before_action)
-            .with(:enable_prototyping)
+      it 'should return false when prototyping has not been enabled' do
+        Prototypical.stubs(:enabled?).returns(true)
+        refute @controller.prototyping?
+      end
 
-          StubController.send :include, Controller
-        end
+      it 'should return false when enable_prototyping has been called but prototyping was not enabled' do
+        Prototypical.stubs(:enabled?).returns(false)
+        @controller.enable_prototyping
+        refute @controller.prototyping?
       end
     end
   end
