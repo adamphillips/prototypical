@@ -1,6 +1,7 @@
 require 'active_support'
 
 require 'prototypical/configuration'
+require 'prototypical/controller'
 require 'prototypical/railtie'
 
 module Prototypical
